@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>OSGIS App: TIN, buffer, select</title>
+<!-- jQuery ui -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- website layout css -->
+<link rel="stylesheet" href="Includes/layout/css/style.css" type="text/css">
+<!-- ol3 css -->
+<link rel="stylesheet" href="Includes/plugins/ol3/ol.css" type="text/css">
+<!-- turf js -->
+<script src="Includes/plugins/turf/turf.min.js"></script>
+<!-- ol3 js -->
+<script src="Includes/plugins/ol3/ol.js"></script>
+<!-- jquery -->
+<script type="text/javascript" src="Includes/plugins/jquery/jquery-3.1.1.js"></script>
+<!-- The Promise object is used for asynchronous computations. 
+//source: https://github.com/ThomasG77/turf-ol3/blob/master/assets/js/es6-promise.min.js
+-->
+<script src="Includes/plugins/js/es6-promise.min.js"></script>
+<!-- A polyfill -->
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL,fetch"></script>
+<!--
+ geojsonToFeatures
+ //source: https://github.com/ThomasG77/turf-ol3/blob/master/assets/js/helpers.js
+-->  
+<script src="Includes/plugins/js/helpers.js"></script>
+<script src="Includes/plugins/js/style.js"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- User interface -->
+<script src="Includes/plugins/js/user-interface.js"></script>
+</head>
+
+<body>
+
+<!-- FORMS -->  
+    
+ <div id="dialog-form" title="Create buffer" style="display: none;">
+ 
+    <form id="form_buffer_dialog">
+	
+	    <label for="buffer_distance_unit_type">Distance unit:</label>
+	    <select name="buffer_distance_unit_type" id="buffer_distance_unit_type" class="text ui-widget-content ui-corner-all">
+		<option selected="selected" value="kilometers">Kilometers</option>
+		<option value="miles">Miles</option>
+	    </select>
+	    <br>
+	    <br>
+	    <label for="buffer_distance">Distance:</label>
+	    <input type="text" name="buffer_distance" id="buffer_distance" value="" class="text ui-widget-content ui-corner-all">
+	
+	    <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+    </form>
+</div>  
+    
+<!-- GIS TOOLBAR -->  
+
+<div id="gis_toolbar" class="ui-widget-content" style="display: none;">
+    <button id="tool_buffer">Buffer</button>
+    <button id="tool_dissolve">Dissolve</button>
+    <button id="tool_intersect">Intersect</button>
+    <button id="tool_voronoi">Voronoi</button>
+</div>
+      
+<!-- MAP WINDOW -->  
+<div id="map" class="map"></div>
+ 
+<script type="text/javascript">
+var styleOverlay = new ol.style.Style({
+        image: new ol.style.Circle({
+          stroke: new ol.style.Stroke({
+            color: 'white'
+          }),
+          fill: new ol.style.Fill({
+            color: 'red'
+          }),
+          radius: 15
+        })
+      });
+	  
+	  
+	  
+var geoJsonFormatter = new ol.format.GeoJSON();
+var vectorSourcePoints = new ol.source.Vector();
+var vectorSourceBuffer = new ol.source.Vector();
+var vectorSourceDissolve = new ol.source.Vector();
+var vectorSourceWithin = new ol.source.Vector();
+var vectorSourceAdminstrative = new ol.source.Vector({
+    //strategy: ol.loadingstrategy.bbox
+});
+
+var vectorLayerPoints = new ol.layer.Vector({
+    source: vectorSourcePoints,
+    style: styleFunction
+});
+
+var vectorLayerBuffer = new ol.layer.Vector({
+    source: vectorSourceBuffer,
+    style: styleFunction
+});
+
+var vectorLayerWithin = new ol.layer.Vector({
+        source: vectorSourceWithin,
+		style: styleOverlay
+      });	
+
+var vectorLayerDissolve = new ol.layer.Vector({
+    source: vectorSourceDissolve,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({
+            color: 'red',
+            lineDash: [4],
+            width: 3
+        }),
+        fill: new ol.style.Fill({
+            color: 'rgba(255, 255, 255, 0.5)'
+        })
+    })
+});	
+
+var vectorLayerAdminstrative = new ol.layer.Vector({
+        source: vectorSourceAdminstrative,
+	style: styleFunction
+});
+
+var map = new ol.Map({
+    target: 'map',
+    layers: [
+	new ol.layer.Tile({
+	    source: new ol.source.OSM()
+	}),
+		vectorLayerWithin,
+		vectorLayerAdminstrative,
+		//vectorLayerBuffer,
+		vectorLayerDissolve,
+		vectorLayerPoints
+    ],
+    view: new ol.View({
+      center: ol.proj.transform([8.6, 49], 'EPSG:4326', 'EPSG:3857'),
+      zoom: 10
+    })
+});
+var myPoints;
+fetch('Data/json/radiation_poi.geojson').then(function(response) {
+    return response.json().then(function(point_fc) {
+	myPoints = point_fc;
+	vectorSourcePoints.addFeatures(geojsonToFeatures(point_fc, {
+	  featureProjection: 'EPSG:3857'
+	}));
+	//console.log(point_fc);
+    });
+    
+}); 
+
+fetch('Data/json/adminstrative_poly.geojson').then(function(response) {
+    return response.json().then(function(polys_fc) {
+	vectorSourceAdminstrative.addFeatures(geojsonToFeatures(polys_fc, {
+	    featureProjection: 'EPSG:3857'
+	}));
+	//console.log(polys_fc);
+    });
+});
+
+var select = new ol.interaction.Select({
+    layers: [
+	//vectorLayerAdminstrative, 
+	vectorSourcePoints
+    ]
+
+});
+
+map.addInteraction(select);
+
+var currentlySelectedFeatureCollection = select.getFeatures();
+
+var geoJsonCollection = new ol.Collection();
+
+
+// Handling selected features
+currentlySelectedFeatureCollection.on('change', function(event) {
+    
+    geoJsonCollection.clear();
+
+    
+    // loop
+    this.forEach(function(feature, index, array) {
+        
+        var multipolygon_geometry = feature.getGeometry(); // returns geometry (MultiPolygon)
+        var multipolygon_properties = feature.getProperties();
+        
+        var geometries = multipolygon_geometry.getPolygons();// returns geometries (Polygon)
+        
+        var polygon_geometry;
+        //var polygon_feature;
+        var polygon_feature_geojson;
+        
+        if(geometries.length > 1){
+            for(var i = 0; i < geometries.length; i++){
+               polygon_geometry = geometries[i];
+               
+                polygon_feature = new ol.Feature({
+                    geometry: new ol.geom.Polygon(polygon_geometry.getCoordinates()),
+                    //properties: multipolygon_properties
+                });
+               geoJsonCollection.push(geoJsonFormatter.writeFeatureObject(polygon_feature, {defaultDataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'}));
+            }
+        } else {
+            polygon_geometry = geometries[0];
+            polygon_feature = new ol.Feature({
+                geometry: new ol.geom.Polygon(polygon_geometry.getCoordinates()),
+                //properties: multipolygon_properties
+            });
+            geoJsonCollection.push(geoJsonFormatter.writeFeatureObject(polygon_feature, {defaultDataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857', rightHanded: true}));
+        };
+
+	//geoJsonCollection.push(geoJsonFormatter.writeFeatureObject(feature, {defaultDataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857', decimals: 100 }));
+    });
+    
+    geoJsonCollection.changed();
+    
+}); 
+
+
+//****** turf within ***************
+ geoJsonCollection.on('change', function(event) {
+		// clear the source if it had some feature from the previous selection
+		vectorSourceWithin.clear();
+		
+		// get the selected collection objects in form of array
+		var arr = geoJsonCollection.getArray();
+		
+		// create the a featurecolllection from the selected array 
+		var fc = turf.featureCollection(arr);
+		
+	    var within = turf.within(myPoints, fc);
+		
+		vectorSourceWithin.addFeatures(geojsonToFeatures(within, {
+		dataProjection: 'EPSG:4326',
+		featureProjection: 'EPSG:3857'
+	    }));
+	   
+    });
+
+//
+
+
+select.on('select', function(){
+    select.changed();
+});
+
+select.on('change', function(event){
+    currentlySelectedFeatureCollection.changed();
+});
+
+var dragBox = new ol.interaction.DragBox({
+    layers: [
+	//vectorLayerAdminstrative, 
+	vectorSourcePoints
+    ],
+    condition: ol.events.condition.platformModifierKeyOnly
+});
+
+map.addInteraction(dragBox);
+
+dragBox.on('boxend', function() {
+
+    var extent = dragBox.getGeometry().getExtent();
+    
+    vectorSourceAdminstrative.forEachFeatureIntersectingExtent(extent, function(feature) {
+	currentlySelectedFeatureCollection.push(feature); 
+    });
+    /*
+    vectorSourcePoints.forEachFeatureIntersectingExtent(extent, function(feature) {
+	currentlySelectedFeatureCollection.push(feature); 
+    });
+    */
+    currentlySelectedFeatureCollection.changed();
+});
+
+dragBox.on('boxstart', function() {
+    currentlySelectedFeatureCollection.clear();
+});
+
+map.on('click', function() {
+    currentlySelectedFeatureCollection.clear();
+});
+
+</script>
+
+</body>
+</html>

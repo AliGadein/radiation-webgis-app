@@ -1,0 +1,7 @@
+
+Turf
+
+source: http://turfjs.org/
+version: v3.5.1
+inserted by: Daniel Kemeny 
+date: 2016.10.20
