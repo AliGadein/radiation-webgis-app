@@ -1,0 +1,6 @@
+
+Openlayers 3
+source: https://openlayers.org/download/
+version: 3.18.2-dist
+inserted by: Daniel Kemeny 
+date: 2016.10.20

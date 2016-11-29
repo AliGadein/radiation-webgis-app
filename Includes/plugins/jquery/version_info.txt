@@ -1,0 +1,7 @@
+
+Jquery
+
+source: https://jquery.com/download/
+version: v3.1.1
+inserted by: Daniel Kemeny 
+date: 2016.10.20
