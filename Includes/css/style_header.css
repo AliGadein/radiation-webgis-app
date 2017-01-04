@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+* {
+	margin: 0px auto;
+	padding: 0px;
+}
+footer img{
+	height: 40px;
+}
+.navbar .brand{
+	color: #0CBBF5;
+	font-size: x-large;
+}
+.navbar{
+	margin-bottom: 0px;
+}
+.navbar-inner {
+	padding-left: 40px;
+}

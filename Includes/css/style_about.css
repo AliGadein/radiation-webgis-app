@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+h1 {
+	font-size: 30px;
+	color: #0CBBF5;
+}
+p {
+	text-align: justify;
+	padding-right: 50px;
+	padding-left: 20px;
+}
+thead{
+	background: #eee;
+}
+#table_header{
+	text-align: center;
+}
+#table_text_justify{
+	text-align: justify;
+}		
+.nav-list {
+	margin-top: 15px;
+	background: #eee;
+	border-radius: 15px;
+	padding: 15px 100px 15px 15px;
+	/*position: fixed;*/
+}
+.row li{
+	margin-top: 10px;
+}
+.table #table_img {
+	vertical-align: middle;
+}

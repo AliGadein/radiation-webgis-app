@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>OSGIS App: TIN, buffer, select</title>
-<!-- website layout css -->
-<link rel="stylesheet" href="Includes/style.css" type="text/css">
+
 <!-- ol3 css -->
 <link rel="stylesheet" href="Includes/plugins/ol3/ol.css" type="text/css">
 <!-- turf js -->
@@ -34,20 +34,58 @@
 <script src="Includes/bootstrap-jqueryui/assets/js/jquery-ui-1.10.0.custom.min.js" type="text/javascript"></script>
 <script src="Includes/bootstrap-jqueryui/assets/js/google-code-prettify/prettify.js" type="text/javascript"></script>
 
+<!-- website layout css -->
+<link rel="stylesheet" href="Includes/css/style_header.css" type="text/css">
+<link rel="stylesheet" href="Includes/css/style_map.css" type="text/css">
+
 </head>
 
 <body>
 
+<!-- header--> 
+<header>
+	<div class="navbar">
+	  <div class="navbar-inner">
+		<div class="container">
+		  <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </a>
+		  <a class="brand" href="#"><strong>Spatial analysis of radiological data </strong>- <small>Keep Hacking</small></a>
+		  <div class="nav-collapse navbar-responsive-collapse collapse">
+			<ul class="nav pull-right">
+				<li class="active"><a href="./index.html"><span class="icon-globe" aria-hidden="true"></span> Map <span class="sr-only"></span></a></li>
+				<li><a href="./about.html"><span class="icon-info-sign" aria-hidden="true"></span> About </a></li>
+				<li><a href="./contact.html"><span class="icon-user" aria-hidden="true"></span> Contact </a></li>
+				<li class="divider-vertical"></li>
+			</ul>
+		  </div><!-- /.nav-collapse -->
+		</div>
+	  </div><!-- /navbar-inner -->
+	</div><!-- /navbar -->
+</header> 
+
+
 <!-- layout --> 
 
 <!-- Tool bar -->  
-
 <div id="gis_toolbar" class="ui-widget-content panel">
-    <button class="btn " id="tool_buffer">Buffer</button>
-    <button class="btn " id="tool_union">Union</button>
-    <button class="btn " id="tool_within">Within</button>
-    <button class="btn " id="tool_nearest">Nearest</button>
-    <button class="btn " id="tool_voronoi">Voronoi</button>
+	<ACRONYM title="Select points or polygons">
+		<button class="btn " id="tool_buffer">Buffer</button>
+	</ACRONYM>
+	<ACRONYM title="Select more than one polygon">
+	    <button class="btn " id="tool_union">Union</button>
+	</ACRONYM>
+	<ACRONYM title="Select continuous polygons which has points inside">
+		<button class="btn " id="tool_within">Within</button>
+	</ACRONYM>
+	<ACRONYM title="Select only one point">
+		<button class="btn " id="tool_nearest">Nearest</button>
+	</ACRONYM>
+	<ACRONYM title="In process ????????">
+	    <button class="btn " id="tool_voronoi">Voronoi</button>
+	</ACRONYM>
 </div>
 
 <!-- Layer switcher --> 
@@ -652,9 +690,13 @@ WithinDialog = $("#dialog-within-tool").dialog({
 		
 		// get the selected collection objects in form of array
 		var arr = SelectedFeatures.getArray();
-		// console.log(LH.formatFeaturesToGeoJson(arr));
+		console.log(LH.formatFeaturesToGeoJson(arr));
+		// create the a featurecolllection from the selected array 
 		
-		// console.log(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()));
+		console.log(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()));
+		
+		var fc = turf.featureCollection(LH.formatFeaturesToGeoJson(arr));
+		//console.log();
 		
 		var within = turf.within(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()), LH.formatFeaturesToGeoJson(arr));
 		
@@ -987,6 +1029,14 @@ map.on('click', function() {
 });
 */
 </script>
+
+<!-- FOOTER -->
+<footer>
+	<p class="pull-right"><a href="#">Back to top</a></p>
+	<p><a title="Logo HS-Karlsruhe" href="https://www.hs-karlsruhe.de/home.html"> 
+		<img src='img/hska_logo_RGB_small.jpg' alt="Logo HS-Karlsruhe" ></a>
+	&middot;    &copy; 2016 Keep Hacking, OPEN SOURCE GIS 2016-2017 </p>
+</footer>
 
 </body>
 </html>
