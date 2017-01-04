@@ -652,13 +652,9 @@ WithinDialog = $("#dialog-within-tool").dialog({
 		
 		// get the selected collection objects in form of array
 		var arr = SelectedFeatures.getArray();
-		console.log(LH.formatFeaturesToGeoJson(arr));
-		// create the a featurecolllection from the selected array 
+		// console.log(LH.formatFeaturesToGeoJson(arr));
 		
-		console.log(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()));
-		
-		var fc = turf.featureCollection(LH.formatFeaturesToGeoJson(arr));
-		//console.log();
+		// console.log(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()));
 		
 		var within = turf.within(LH.formatFeaturesToGeoJson(LH.layers['VectorLayerRadiationPoi'].getSource().getFeatures()), LH.formatFeaturesToGeoJson(arr));
 		
