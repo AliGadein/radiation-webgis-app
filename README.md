@@ -1,18 +1,14 @@
 # radiation-webgis-app
 
-<b>About us:</b>
+<h1>About us:</h1>
 <ul>
 <b>This project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons. The example .geojson dataset is the administrative areas of Germany, and points with radiation data.</b>
 </ul>
-<br>
-<b>Setup:</b>
+<h1>Setup:</h1>
 <ul>
 Download the code, then insert it under a localhost/hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
 </ul>
-<br>
-<b>The following functionalities were implemented:</b>
-<br>
-
+<h1>Functionalities:</h1>
 <ul>
   <li>1. Map window: contains the base map and the vector layers</li>
   <li>2. Layer switcher: helps you to keep track of your layers ( layer-tree )</li>
@@ -46,8 +42,7 @@ Download the code, then insert it under a localhost/hosted server environment. M
   
 </ul>
 <br>
-<b>Libaries used:</b>
-<br>
+<h1>Libaries used:</h1>
 <ul>
   <li>Angular.js https://angularjs.org/ for: (routing, template management)</li>
   <li>JQuery https://jquery.com/ for: (template management)</li>
@@ -60,8 +55,7 @@ Download the code, then insert it under a localhost/hosted server environment. M
   <li>Bootstrap 3 (http://getbootstrap.com/) for (layout)</li>
 </ul>
 <br>
-<b>Known bugs:</b>
-<br>
+<h1>Known bugs:</h1>
 <ul>
 The buffer polygons created by turf.js are rendered with distorsion when the application's default rendering projection is set to <a href="http://spatialreference.org/ref/sr-org/7483/">EPSG:3857</a>, known as Web Mercartor. 
 <br><br>
