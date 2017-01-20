@@ -39,9 +39,7 @@ Download the code, then insert it under a localhost/hosted server environment. M
       <li>Styling</li>
       <li>Help box</li>
     </ul>
-  
 </ul>
-<br>
 <h1>Libaries used:</h1>
 <ul>
   <li>Angular.js https://angularjs.org/ for: (routing, template management)</li>
@@ -54,7 +52,6 @@ Download the code, then insert it under a localhost/hosted server environment. M
   <li>Spectrum.js https://bgrins.github.io/spectrum/</li>
   <li>Bootstrap 3 (http://getbootstrap.com/) for (layout)</li>
 </ul>
-<br>
 <h1>Known bugs:</h1>
 <ul>
 The buffer polygons created by turf.js are rendered with distorsion when the application's default rendering projection is set to <a href="http://spatialreference.org/ref/sr-org/7483/">EPSG:3857</a>, known as Web Mercartor. 
