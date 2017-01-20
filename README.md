@@ -46,7 +46,6 @@ Download the code, then insert it under a localhost/hosted server environment. M
   
 </ul>
 <br>
-
 <b>Libaries used:</b>
 <br>
 <ul>
@@ -61,7 +60,6 @@ Download the code, then insert it under a localhost/hosted server environment. M
   <li>Bootstrap 3 (http://getbootstrap.com/) for (layout)</li>
 </ul>
 <br>
-
 <b>Known bugs:</b>
 <br>
 <ul>
