@@ -49,6 +49,7 @@ Download the code, then insert it under a localhost / hosted server environment.
   <li><a target="_blank" href="https://angularjs.org/">Angular.js</a> for: routing, template management (directives)</li>
   <li><a target="_blank" href="https://jquery.com/">JQuery</a> for: template management</li>
   <li><a target="_blank" href="http://jqueryui.com/">JQuery UI</a> for: event based user interface functionalities, for example: draggables, sortables, dialogs</li>
+  <li><a target="_blank" href="http://mjsarfatti.com/sandbox/nestedSortable/">nestedSortable plugin for jQueryUI</a> for: Tree sorting</li>
   <li><a target="_blank" href="http://requirejs.org/">Require.js</a> for: .js codebase management.</li>
   <li><a target="_blank" href="https://openlayers.org/">OpenLayers 3</a> for: layer rendering, core map functionality</li>
   <li><a target="_blank" href="http://blog.ivank.net/voronoi-diagram-in-javascript.html">Voronoi</a></li>
