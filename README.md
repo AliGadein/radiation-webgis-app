@@ -54,7 +54,7 @@ Download the code, then insert it under a localhost / hosted server environment.
 </ul>
 <h1>Known bugs:</h1>
 <ul>
-The buffer polygons created by turf.js are rendered with distorsion when the application's default rendering projection is set to <a target="_blank" href="http://spatialreference.org/ref/sr-org/7483/">EPSG:3857</a>, known as Web Mercartor. 
+The buffer polygons created by turf.js are rendered with distortion when the application's default rendering projection is set to <a target="_blank" href="http://spatialreference.org/ref/sr-org/7483/">EPSG:3857</a>, known as Web Mercartor. 
 <br><br>
 This happens, because the turf.js libary calculates only with <a target="_blank" href="http://spatialreference.org/ref/epsg/wgs-84/">EPSG:4326</a> coordinates and does not consider the Earth's curve when generates the buffer geometry. This results distorted geometries. The distorsion increases when we work with geometries farther from the equator. 
 <br><br>
