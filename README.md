@@ -4,6 +4,10 @@
 <ul>
 <b>This project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons. The example .geojson dataset is the administrative areas of Germany, and points with radiation data.</b>
 </ul>
+<h1>Example data:</h1>
+<ul>
+TODO
+</ul>
 <h1>Setup:</h1>
 <ul>
 Download the code, then insert it under a localhost / hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a target="_blank" href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a target="_blank" href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
@@ -65,4 +69,9 @@ The turf.js team is planning to change the way of how turf calculates in a major
 <i><b>Turf.js:</b> <q><a target="_blank" href="https://github.com/Turfjs/turf/issues/387">This is because buffer operations are non-geodesic.</a> The current implementation is only capable of flat-plane buffers. It is a <a target="_blank" href="https://github.com/Turfjs/turf-buffer/issues/7">known limitation</a> I would love to fix when I have the time, but it is a significant algorithmic lift.</q></i>
 
 Once they will release this we will update our project with the necessary changes.
+</ul>
+
+<h1>License information:</h1>
+<ul>
+TODO
 </ul>
