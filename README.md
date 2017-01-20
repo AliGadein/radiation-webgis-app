@@ -49,7 +49,7 @@ Download the code, then insert it under a localhost / hosted server environment.
   <li><a target="_blank" href="https://openlayers.org/">OpenLayers 3</a> for: layer rendering, core map functionality</li>
   <li><a target="_blank" href="http://blog.ivank.net/voronoi-diagram-in-javascript.html">Voronoi</a></li>
   <li><a target="_blank" href="http://turfjs.org/">Turf.js</a> for: geospatial tools</li>
-  <li><a target="_blank" href="https://bgrins.github.io/spectrum/">Spectrum.js</a></li>
+  <li><a target="_blank" href="https://bgrins.github.io/spectrum/">Spectrum.js</a>for: color picker</li>
   <li><a target="_blank" href="http://getbootstrap.com/">Bootstrap 3</a> for: layout</li>
 </ul>
 <h1>Known bugs:</h1>
