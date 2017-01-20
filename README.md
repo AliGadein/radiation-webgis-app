@@ -1,14 +1,17 @@
 # radiation-webgis-app
 
-<b>About us:</b><br>
+<b>About us:</b>
 <ul>
 <b>This project project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons.</b>
-</ul><br>
-<b>Setup:</b><br>
+</ul>
+<br>
+<b>Setup:</b>
 <ul>
 Download the code, then insert it under a localhost/hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
-</ul><br>
-<b>The following functionalities were implemented:</b><br>
+</ul>
+<br>
+<b>The following functionalities were implemented:</b>
+<br>
 
 <ul>
   <li>1. Map window: contains the base map and the vector layers</li>
