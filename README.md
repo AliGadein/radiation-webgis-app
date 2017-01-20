@@ -2,7 +2,7 @@
 
 <b>About us:</b>
 <ul>
-<b>This project project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons.</b>
+<b>This project project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons. The example .geojson dataset is the administrative areas of Germany, and points with radiation data.</b>
 </ul>
 <br>
 <b>Setup:</b>
@@ -44,10 +44,11 @@ Download the code, then insert it under a localhost/hosted server environment. M
       <li>Help box</li>
     </ul>
   
-</ul><br>
+</ul>
+<br>
 
 <b>Libaries used:</b>
-
+<br>
 <ul>
   <li>Angular.js https://angularjs.org/ for: (routing, template management)</li>
   <li>JQuery https://jquery.com/ for: (template management)</li>
@@ -58,9 +59,11 @@ Download the code, then insert it under a localhost/hosted server environment. M
   <li>Turf.js (http://turfjs.org/) for: (geospatial tools)</li>
   <li>Spectrum.js https://bgrins.github.io/spectrum/</li>
   <li>Bootstrap 3 (http://getbootstrap.com/) for (layout)</li>
-</ul><br>
+</ul>
+<br>
 
 <b>Known bugs:</b>
+<br>
 <ul>
 The buffer polygons created by turf.js are rendered with distorsion when the application's default rendering projection is set to <a href="http://spatialreference.org/ref/sr-org/7483/">EPSG:3857</a>, known as Web Mercartor. 
 <br><br>
