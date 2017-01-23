@@ -43,10 +43,6 @@ define(function(){
     require(["directive.dialog.tool.voronoi"], function(directive){
 	App.directive("toolVoronoi", directive);
     });
-    
-    require(["directive.fragment.recursive.tree"], function(directive){
-		App.directive("tree", directive);
-    }); // directive
 
     // Routing ---------------------------------------------------------------------------
 
@@ -58,19 +54,19 @@ define(function(){
 
 	$routeProvider.when("/", {
 	    templateUrl : "templates/pages/home.html",
-	    controller: "homeController",
+	    controller: "homeController"
 	    //reloadOnSearch: false
 	}).when("/home", {
 	    templateUrl : "templates/pages/home.html",
-	    controller: "homeController",
+	    controller: "homeController"
 	    //reloadOnSearch: false
 	}).when("/about", {
 	    templateUrl : "templates/pages/about.html",
-	    controller: "aboutController",
+	    controller: "aboutController"
 	    //reloadOnSearch: false
 	}).when("/contact", {
 	    templateUrl : "templates/pages/contact.html",
-	    controller: "contactController",
+	    controller: "contactController"
 	    //reloadOnSearch: false
 	}).otherwise({redirectTo:'/'});
 
