@@ -9,7 +9,7 @@ define(["openlayers", "olstyles", "jquery", "proj4"], function(ol, styles, jquer
 	self.stylist = new styles();
 
 
-	//.defaultFeatureProjection = 'EPSG:3857';
+	//self.defaultFeatureProjection = 'EPSG:3857';
 	self.defaultFeatureProjection = "EPSG:4326";
 	self.defaultDataProjection = "EPSG:4326";
 	
