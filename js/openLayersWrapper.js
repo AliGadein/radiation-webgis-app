@@ -1,4 +1,4 @@
-define(["openlayers", "olstyles", "jquery", "proj4"], function(ol, styles, jquery, proj4){
+define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
     
     var OpenLayersWrapper = function() {
 	
@@ -13,9 +13,6 @@ define(["openlayers", "olstyles", "jquery", "proj4"], function(ol, styles, jquer
 	self.defaultFeatureProjection = "EPSG:4326";
 	self.defaultDataProjection = "EPSG:4326";
 	
-	//ol.proj.setProj4(proj4);
-
-
 	self.formatRightHanded = true;
 
 	self.defaultFeatureReadOptions = { 
