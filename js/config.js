@@ -185,18 +185,6 @@ requirejs.config({
 	
 	"directive.dialog.tool.within": [
 	    "directives/dialogs/directive.dialog.tool.within"
-	],
-	
-	// Fragment directives
-	
-	"directive.fragment.recursive.tree": [
-	    "directives/fragments/directive.fragment.recursive.tree"
-	],
-	
-	// Helper Factories
-	
-	"factory.helper.recursive.tree": [
-	    "factories/helpers/factory.helper.recursive.tree"
 	]
 	
     },
