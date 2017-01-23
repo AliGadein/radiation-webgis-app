@@ -63,9 +63,6 @@ define(["openLayersWrapper", "openlayers"], function(openLayersWrapper, ol){
 		target: "map-window"
 	    });
 
-	    console.log(olWrapper.Map.getView().calculateExtent(olWrapper.Map.getSize()));
-	    
-
 	});
 
     };
