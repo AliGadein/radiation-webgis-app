@@ -46,9 +46,7 @@ define(["openLayersWrapper", "openlayers"], function(openLayersWrapper, ol){
 
     olWrapper.insertLayer(tg_1, olWrapper.rootGroup);
     olWrapper.insertLayer(tg_2, olWrapper.rootGroup);
- 
-    
- 
+
     // Controller function, fires whenever changing back to this page (home)
     return function($rootScope){
 
