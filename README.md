@@ -6,7 +6,10 @@
 </ul>
 <h1>Example data:</h1>
 <ul>
-TODO
+Two data set was used as an example data: 
+1.	A series of Radiation measurements obtained from different stations distributed all over Germany. Data has been downloaded from the website as (CSV-file). Then this file was added to QGIS (add Delimited text layer) and setting the geographic reference to WGS84. In order to extract one time slice a selection by exrpression was uesd by selecting the radiation measurements at this date (10.12.2015) and time (00:00:00), then the selected data point has been exported as GeoJson.
+2.	Administrative areas of Germany as a shape-file downloaded from BKG. The areas are of the type “MultiPolygons”. QGIS was used to convert the areas to the type “Polygon” then exported to a GeoJson afterwards. Regarding the use of the data, please refer to BKG. © GeoBasis-DE / BKG 2017.
+
 </ul>
 <h1>Setup:</h1>
 <ul>
