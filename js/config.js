@@ -39,7 +39,7 @@ requirejs.config({
 	],
 	
 	"turf": [
-	    "libs/turf/turf_352"
+	    "libs/turf/turf_377"
 	
 	],
 	
