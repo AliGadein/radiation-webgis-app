@@ -43,10 +43,6 @@ requirejs.config({
 	
 	],
 	
-	"proj4": [
-	    "libs/proj4js/proj4js"
-	],
-	
 	// voro
 	
 	"Voronoi": [
