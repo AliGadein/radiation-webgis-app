@@ -14,7 +14,15 @@ Two data sets were used as an example data:
 </ul>
 <h1>Setup:</h1>
 <ul>
-Download the code, then insert it under a localhost / hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a target="_blank" href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a target="_blank" href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
+Download the code, then insert it under a localhost / hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a target="_blank" href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a target="_blank" href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. 
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
 </ul>
 <h1>Functionalities:</h1>
 <ul>
