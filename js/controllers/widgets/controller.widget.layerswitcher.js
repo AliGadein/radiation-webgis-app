@@ -1,7 +1,4 @@
-// Dependency for directive.widget.layerswitcher
 define(["switcherWrapper", "sortable_nested", "bootstrap"], function(switcherWrapper, sortable_nested, bootstrap){
-    
-
 
     return function($rootScope, $element, $scope){
 
@@ -14,13 +11,17 @@ define(["switcherWrapper", "sortable_nested", "bootstrap"], function(switcherWra
 		
 	    });
 	});
-	
-	
+
 	var sW = new switcherWrapper();
 	$rootScope.switcherWrapper = sW;
 	var olWrapper = $rootScope.openLayersWrapper;
 	
 	sW.init($element.find("#layer_tree"), olWrapper);
+
+
+	olWrapper.rootLayerCollection.on("change", function(){
+	    sW.init($("#layer_tree"), olWrapper);
+	});
 
 	$('#layer_tree').nestedSortable({
 	    handle: 'div',
@@ -66,8 +67,6 @@ define(["switcherWrapper", "sortable_nested", "bootstrap"], function(switcherWra
 			olWrapper.removeLayer(layer, rootGroup.self);
 			olWrapper.insertLayerAt(layer, newGroup.self, insertindex);
 		    }
-		    //$element.find("#layer_tree").html("");
-		    //sW.init($element.find("#layer_tree"), olWrapper.getDataStructureTree());
 		} catch(e){
 
 		}
