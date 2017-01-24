@@ -81,23 +81,25 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 	    
 	    dw.setLayerList("within", "within_layer_surveyed");
 
-	    $("#within_layer_style_fill").spectrum({
-		color: "rgba(210, 0, 210, 0.8)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#within_layer_style_fill").val(color.toRgbString());
-		}
-	    }).val("rgba(210, 0, 210, 0.8)");
-	    
-	    $("#within_layer_style_outline").spectrum({
-		color: "rgba(0, 0, 0, 1)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#within_layer_style_outline").val(color.toRgbString());
-		}
-	    }).val("rgba(0, 0, 0, 1)");
-
 	}); // document.ready()
+	
+	$("#within_layer_style_fill").spectrum({
+	   color: "rgba(210, 0, 210, 0.8)",
+	   showAlpha: true,
+	   change: function(color) {
+	       $("#within_layer_style_fill").val(color.toRgbString());
+	   }
+       }).val("rgba(210, 0, 210, 0.8)");
+
+       $("#within_layer_style_outline").spectrum({
+	   color: "rgba(0, 0, 0, 1)",
+	   showAlpha: true,
+	   change: function(color) {
+	       $("#within_layer_style_outline").val(color.toRgbString());
+	   }
+       }).val("rgba(0, 0, 0, 1)");
+	
+	
     }; // return function
 
 }); 

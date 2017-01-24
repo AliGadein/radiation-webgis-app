@@ -100,10 +100,8 @@ box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
 	border: 1px solid #006dcb;
 }
 
-#gisToolbox i {
-        
-	color: #005196;
-	
+#gisToolbox i {  
+	color: #005196;	
 }
 
 #gisToolbox .toolWrapper {
@@ -115,69 +113,53 @@ box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
 }
 
 #gisToolbox .toolWrapper .tool {
-    
     width: 50px;
     height: 50px;
     max-width: 50px;
     max-height: 50px;
     min-width: 50px;
     min-height: 50px;
-    
     margin: 5px;
-    
     border: 1px solid #005196;
     border-radius: 5px;
     background: #0089ff;
     cursor: pointer !important;
-
-    
 }
 
 #gisToolbox .toolWrapper .tool:disabled {
- 
     opacity: 0.3;
     cursor: no-drop !important;
- 
-    
 }
 
 #gisToolbox .toolWrapper .tool:not(:disabled):hover {
    -webkit-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
--moz-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
+    box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
 }
 
 #gisToolbox .toolWrapper .tool:not(:disabled) i {
     color: white !important;
-
 }
 
 .layerSwitcher {
-
     z-index: 10;
     cursor: move;
     border-radius: 4px;
     overflow: hidden;
-    
     position: absolute;
     margin: auto;
     top: 20%;
     left: 50px;
-    width: 350px;
-    
+    width: 400px;
     padding-left: 5px;
     padding-right: 5px;
-    
     min-width: 50px;
     min-height: 50px;	
-
-        background-color: white;
-	
-	border: 1px solid #0275d8;
-	
--webkit-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
--moz-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
+    background-color: white;
+    border: 1px solid #0275d8;
+    -webkit-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
+    -moz-box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
+    box-shadow: 0px 0px 34px -1px rgba(0,0,0,0.44);
 }
 
 .layerSwitcher .tool-grab {

@@ -57,6 +57,12 @@ define(["jqueryui", "turf", "openlayers", "spectrum"], function(jqueryui, turf, 
 		min: 1
 	    });
 	    
+
+	    
+	    
+
+	}); // document.ready()
+	
 	    $("#buffer_layer_style_fill").spectrum({
 		color: "rgba(255, 141, 71, 0.8)",
 		showAlpha: true,
@@ -72,10 +78,7 @@ define(["jqueryui", "turf", "openlayers", "spectrum"], function(jqueryui, turf, 
 		    $("#buffer_layer_style_outline").val(color.toRgbString());
 		}
 	    }).val("rgba(0, 0, 0, 1)");
-	    
-	    
-
-	}); // document.ready()
+	
     }; // return function
 
 }); 

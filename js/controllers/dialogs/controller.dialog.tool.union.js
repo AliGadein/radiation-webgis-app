@@ -61,23 +61,25 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 		min: 2
 	    });
 
-	    $("#union_layer_style_fill").spectrum({
-		color: "rgba(210, 0, 210, 0.8)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#union_layer_style_fill").val(color.toRgbString());
-		}
-	    }).val("rgba(210, 0, 210, 0.8)");
-	    
-	    $("#union_layer_style_outline").spectrum({
-		color: "rgba(0, 0, 0, 1)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#union_layer_style_outline").val(color.toRgbString());
-		}
-	    }).val("rgba(0, 0, 0, 1)");
 
 	}); // document.ready()
+	
+	 $("#union_layer_style_fill").spectrum({
+	    color: "rgba(210, 0, 210, 0.8)",
+	    showAlpha: true,
+	    change: function(color) {
+		$("#union_layer_style_fill").val(color.toRgbString());
+	    }
+	}).val("rgba(210, 0, 210, 0.8)");
+
+	$("#union_layer_style_outline").spectrum({
+	    color: "rgba(0, 0, 0, 1)",
+	    showAlpha: true,
+	    change: function(color) {
+		$("#union_layer_style_outline").val(color.toRgbString());
+	    }
+	}).val("rgba(0, 0, 0, 1)");
+	
     }; // return function
 
 }); 

@@ -124,23 +124,24 @@ define(["jqueryui", "turf", "openlayers", "Voronoi", "Point"], function(jqueryui
 		min: 3
 	    });
 
-	    $("#voronoi_layer_style_fill").spectrum({
-		color: "rgba(28, 89, 0, 0.8)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#voronoi_layer_style_fill").val(color.toRgbString());
-		}
-	    }).val("rgba(28, 89, 0, 0.8)");
-
-	    $("#voronoi_layer_style_outline").spectrum({
-		color: "rgba(0, 0, 0, 1)",
-		showAlpha: true,
-		change: function(color) {
-		    $("#voronoi_layer_style_outline").val(color.toRgbString());
-		}
-	    }).val("rgba(0, 0, 0, 1)");
-
 	}); // document.ready()
+	
+	$("#voronoi_layer_style_fill").spectrum({
+	    color: "rgba(28, 89, 0, 0.8)",
+	    showAlpha: true,
+	    change: function(color) {
+		$("#voronoi_layer_style_fill").val(color.toRgbString());
+	    }
+	}).val("rgba(28, 89, 0, 0.8)");
+
+	$("#voronoi_layer_style_outline").spectrum({
+	    color: "rgba(0, 0, 0, 1)",
+	    showAlpha: true,
+	    change: function(color) {
+		$("#voronoi_layer_style_outline").val(color.toRgbString());
+	    }
+	}).val("rgba(0, 0, 0, 1)");
+	
     }; // return function
 
 }); 

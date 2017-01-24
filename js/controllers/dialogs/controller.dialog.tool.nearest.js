@@ -90,7 +90,10 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 	    
 	    dw.setLayerList("nearest", "nearest_layer_surveyed");
 
-	    $("#nearest_layer_style_fill").spectrum({
+
+	}); // document.ready()
+	
+	     $("#nearest_layer_style_fill").spectrum({
 		color: "rgba(210, 0, 210, 0.8)",
 		showAlpha: true,
 		change: function(color) {
@@ -105,8 +108,7 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 		    $("#nearest_layer_style_outline").val(color.toRgbString());
 		}
 	    }).val("rgba(0, 0, 0, 1)");
-
-	}); // document.ready()
+	
     }; // return function
 
 }); 
