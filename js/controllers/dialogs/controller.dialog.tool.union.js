@@ -49,8 +49,7 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 		    }
 		});
 
-		console.log(union);
-
+	
 		ow.addGeoJsonToSource(union , union_layer);
 
 		ow.rootGroup.getLayers().push(union_layer);

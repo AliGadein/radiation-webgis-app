@@ -57,9 +57,7 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 		});
 		
 		var poly_fc = turf.featureCollection(poly_fc);
-		
-		console.log(poly_fc);
-		
+	
 		var within = turf.within(
 			ow.FormatGeoJson.writeFeaturesObject(layer_surveyed.getSource().getFeatures(), ow.defaultFeatureReadOptions),
 			ow.FormatGeoJson.writeFeaturesObject(selected_features.getArray(), ow.defaultFeatureReadOptions)

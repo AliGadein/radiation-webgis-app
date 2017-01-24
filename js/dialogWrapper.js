@@ -148,7 +148,11 @@ define(["jqueryui", "bootstrap"], function(ui, bs){
 		    click: function() {
 
 			if(self.validateForm(self.tools[name])){
-			    operation();
+			    try{
+				operation();
+			    } catch (e){
+				console.log("Geometry error");
+			    }
 			    $( this ).dialog( "close" );
 			} else {
 			    self.printErrorMessages(self.tools[name]);
