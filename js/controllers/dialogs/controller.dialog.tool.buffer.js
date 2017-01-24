@@ -19,8 +19,6 @@ define(["jqueryui", "turf", "openlayers", "spectrum"], function(jqueryui, turf, 
 		    fields[this.name] = this.value;
 		});
 
-		
-
 		buffer_style =  new ol.style.Style({
 		    stroke: new ol.style.Stroke({
 			color: fields.buffer_layer_style_outline,
