@@ -119,8 +119,12 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 		features: event.features
 	    });
 	    self.rootGroup.getLayers().push(new ol.layer.Vector({
-		source: vectorSource
+		source: vectorSource,
+		selectable: false,
+		name: self.generateLayerName(),
+		title: self.generateLayerName()
 	    }));
+	    self.rootLayerCollection.changed();
 	});
 
 	self.interactions.push(self.dragAndDropInteraction);
