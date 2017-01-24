@@ -36,7 +36,6 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 	self.MapView = new ol.View({
 	    //center: ol.proj.transform([8.6, 49], self.defaultDataProjection, "EPSG:3857"),
 	    center: [8.6, 49],
-	    
 	    zoom: 8,
 	    projection: self.defaultFeatureProjection
 	});
@@ -73,7 +72,6 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 
 	self.interactionDragbox = new ol.interaction.DragBox({
 	    layers: function(layer) {
-		return layer;
 		//TODO: Add it back later
 		return layer.get('selectable') === true;
 	    },
@@ -82,20 +80,16 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 
 	self.selectLayersOnExtent = function(collection, extent, current_depth){
 	    collection.forEach(function(layer, index, array) {
-		console.log(layer);
 		if(layer instanceof ol.layer.Group && layer.getLayers().getArray().length) {
 		    // recursion
 		    self.selectLayersOnExtent(layer.getLayers(), extent, current_depth + 1);
 		} else if(typeof layer.getSource === "function") {
 		    if(typeof layer.getSource().forEachFeatureIntersectingExtent === "function"){
-			//if(layer.getProperties().selectable === true){
 			layer.getSource().forEachFeatureIntersectingExtent(extent, function(feature) {
 			    if(layer.get('selectable') === true){
 				self.selectedFeaturesCollection.push(feature); 
 			    } 
-			
 			});
-			//}
 		    }
 		}
 	    });
@@ -103,8 +97,6 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 	},
 
 	self.interactionDragbox.on('boxend', function() {
-	    // Get the extent of the box
-	    console.log(1);
 	    var extent = self.interactionDragbox.getGeometry().getExtent();
 	    self.selectLayersOnExtent(self.rootLayerCollection, extent, 0);
 	    self.selectedFeaturesCollection.changed();
@@ -144,15 +136,10 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 	    name: 'osm',
 	    title: "OpenStreetMap",
 	    selectable:false,
-	    projection: 'EPSG:3857',
-	  
-	    source: new ol.source.OSM({
-		
-	    })
+	    source: new ol.source.OSM({})
 	});
 
 	self.rootGroup.getLayers().push(self.baseLayer);
-	//self.Map.addLayer(self.baseLayer);
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
@@ -170,19 +157,6 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 		geom_type_counter[geometry_type] += 1;
 	    });
 	    return geom_type_counter;
-	},
-	
-	self.ToWebMercator = function(mercatorX_lon, mercatorY_lat){
-	    if ((Math.abs(mercatorX_lon) > 180 || Math.abs(mercatorY_lat) > 90))
-		return;
-
-	    var num = mercatorX_lon * 0.017453292519943295;
-	    var x = 6378137.0 * num;
-	    var a = mercatorY_lat * 0.017453292519943295;
-
-	    mercatorX_lon = x;
-	    mercatorY_lat = 3189068.5 * Math.log((1.0 + Math.sin(a)) / (1.0 - Math.sin(a)));
-	    return [mercatorX_lon, mercatorY_lat];
 	},
 		
 	self.getFeatureInGeoJsonString = function(feature, options = {}){
@@ -222,7 +196,6 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 
 	    return map.reverse();
 	    // Necessary to revert because openlayers displays the layers in render order (first rendered on the bottom)
-	    //return map.reverse();
 	},
 
 	self.getGroupsFromDataStructureRecursive = function(collection, groups = [], current_depth){
@@ -263,23 +236,9 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 	    return map;
 	},
 
-	self.getGroupsFromRootLayerCollection = function(){
-	    //console.log(self.getGroupsFromDataStructureRecursive(self.rootLayerCollection, [], 0));
-	},
-
 	// LAYER MANAGEMENT //
 	
-	// VECTOR LAYER SOURCE MANAGEMENT
-	
-	self.getVectorFeatureData = function(options){
-
-	},
-	
 	// LAYER MOVEMENT ( insert, replace, remove )
-
-	self.createVectorLayer = function(layer){
-	    
-	},
 
 	/**
 	 *  Inserts a layer at the given index
