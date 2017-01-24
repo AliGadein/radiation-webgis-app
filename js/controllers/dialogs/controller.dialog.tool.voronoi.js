@@ -49,8 +49,6 @@ define(["jqueryui", "turf", "openlayers", "Voronoi", "Point"], function(jqueryui
 		selected_features.forEach(function(feature, index, array){
 		    
 		    fc_geojson = ow.FormatGeoJson.writeFeatureObject(feature, ow.defaultFeatureReadOptions);
-		    
-		    console.log(fc_geojson.geometry.coordinates[0]);
 	
 		    points.push(new Point( fc_geojson.geometry.coordinates[0] ,fc_geojson.geometry.coordinates[1] ));
 	
@@ -97,7 +95,7 @@ define(["jqueryui", "turf", "openlayers", "Voronoi", "Point"], function(jqueryui
 		// polygon for window extent
 		current_diff = turf.polygon([[ [extent[0], extent[3]], [extent[2], extent[3]], [extent[2], extent[1]], [extent[0], extent[1]], [extent[0], extent[3]] ]]);
 
-		console.log(current_diff);
+
 		// Intersect / Difference
 		for(var i = 0; i < polygons_fc.features.length; i++){
 		    current_diff = turf.difference(current_diff, polygons_fc.features[i]);
@@ -115,7 +113,7 @@ define(["jqueryui", "turf", "openlayers", "Voronoi", "Point"], function(jqueryui
 		}
 
 		polygons_fc = turf.featureCollection(polygons);
-		console.log(JSON.stringify(polygons_fc));
+
 		ow.addGeoJsonToSource(polygons_fc, voronoi_layer);
 
 		ow.rootGroup.getLayers().push(voronoi_layer);
