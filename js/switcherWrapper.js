@@ -6,7 +6,6 @@ define(["jquery","jqueryui", "bootstrap", "openlayers"], function(jquery, jquery
 	
 	self.container;
 	self.treeData;
-	//self.layer_structure = self.treeData.getDataStructureTree();
 
 	self.init = function(container, olWrapper){
 	    
@@ -27,12 +26,11 @@ define(["jquery","jqueryui", "bootstrap", "openlayers"], function(jquery, jquery
 	    var txt;
 	    var r = confirm("Are you sure want to delete " +layer.title+ "?");
 	    if (r == true) {
-		console.log("confirmed");
-		console.log(group.self.getLayers().remove(layer.self));
+		group.self.getLayers().remove(layer.self);
 		$(self.container).html("");
 		self.init(self.container, self.olWrapper);
 	    } else {
-		console.log("cancelled");
+		//console.log("cancelled");
 	    }
 	},
 	
@@ -40,14 +38,12 @@ define(["jquery","jqueryui", "bootstrap", "openlayers"], function(jquery, jquery
 	    
 	    if(layer.getVisible() === true){
 		layer.setVisible(false);
-		console.log("unvis");
 		c.fadeTo( "fast" , 0.5);
 		$(visibility_icon).removeClass("fa fa-eye").addClass("fa fa-eye-slash");
 	    } else {
 		layer.setVisible(true);
 		c.fadeTo( "fast" , 1);
 		$(visibility_icon).removeClass("fa fa-eye-slash").addClass("fa fa-eye");
-		console.log("vis");
 	    }
 	    
 	},
@@ -58,11 +54,9 @@ define(["jquery","jqueryui", "bootstrap", "openlayers"], function(jquery, jquery
 	    if(props.hasOwnProperty("selectable") && props.selectable === true){
 		$(selectable_icon).removeClass("fa fa-check-square").addClass("fa fa-check-square-o");
 		layer.set("selectable", false);
-		console.log(layer.getProperties());
 	    } else {
 		layer.set("selectable", true);
 		$(selectable_icon).removeClass("fa fa-check-square-o").addClass("fa fa-check-square");
-		console.log(layer.getProperties());
 	    }
 	    
 	},
