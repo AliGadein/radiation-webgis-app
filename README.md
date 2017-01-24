@@ -5,8 +5,8 @@
 <b>This project was created by international students at the Karlsruhe University of Applied Sciences. This web-application is a client-side spatial data editor. The task was to create an application which is based on openlayers 3 and implements the functionality (buffer, nearest, within, union) of turf.js. Additionally we had to develop the functionality for creating voronoi polygons. The example .geojson dataset is the administrative areas of Germany, and points with radiation data.</b>
 </ul>
 <h1>Example data:</h1>
-<ul>
 Two data sets were used as an example data: 
+<br>
 <ul>
 <li>1.	A series of Radiation measurements obtained from different stations distributed all over Germany. Data has been downloaded from the <a target="_blank" href="https://raw.githubusercontent.com/HsKA-OSGIS/EurOS/master/Radiation.csv"> website </a> as (CSV-file). Then this file was added to QGIS (add Delimited text layer) and setting the geographic reference to WGS84. In order to extract one time slice a selection by exrpression was uesd by selecting the radiation measurements at this date (10.12.2015) and time (00:00:00), then the selected data point has been exported as GeoJson.</li>
 <li>2.	Administrative areas of Germany as a shape-file downloaded from <a target="_blank" href="http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=eng&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=15&gdz_user_id=0">BKG</a>. The areas are of the type “MultiPolygons”. QGIS was used to convert the areas to the type “Polygon” then exported to a GeoJson afterwards. Regarding the use of the data, please refer to <a target="_blank" href="http://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=eng&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=15&gdz_user_id=0">BKG</a>. © GeoBasis-DE / <a target="_blank" href="https://www.bkg.bund.de/DE/Home/home.html">BKG</a> 2017.
@@ -14,8 +14,21 @@ Two data sets were used as an example data:
 </ul>
 <h1>Setup:</h1>
 <ul>
-Download the code, then insert it under a localhost / hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a target="_blank" href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a target="_blank" href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
+Download the code, then insert it under a localhost / hosted server environment. Make sure that you have internet connection when you use localhost, because the base layer tiles are requested from the <a target="_blank" href="https://www.openstreetmap.org/">OpenStreetMap</a> server. The website used <a target="_blank" href="https://docs.angularjs.org/api/ngRoute/provider/$routeProvider">Angular.js routing</a>, so make sure that you change the base href value to match with your environment's <a target="_blank" href="http://www.w3schools.com/tags/tag_base.asp">base url</a>. 
+The default .geojson layers are inside the Data folder. You can add additional layers using the drag and drop functionality.
 </ul>
+
+```html
+In case of: localhost/projectname/
+<head>
+    <base href="/projectname/">
+</head>
+In case of: www.yourdomain.xyz/
+<head>
+    <base href="/">
+</head>
+```
+
 <h1>Functionalities:</h1>
 <ul>
   <li>1. Map window: contains the base map and the vector layers</li>
