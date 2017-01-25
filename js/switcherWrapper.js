@@ -131,7 +131,7 @@ define(["jquery","jqueryui", "bootstrap", "openlayers"], function(jquery, jquery
 			    }));
 			}
 		    });
-
+		    dialog.dialog( "close" );
 		},
 		Cancel: function() {
 		  dialog.dialog( "close" );
