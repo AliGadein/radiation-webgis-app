@@ -141,11 +141,11 @@ define(["jqueryui", "bootstrap"], function(ui, bs){
 		open: function() {
 		    
 		   	setInterval(function(){
-			    console.log(self.validateForm(self.tools[name]));
+			    //console.log(self.validateForm(self.tools[name]));
 			    if(self.validateForm(self.tools[name])){
 				//$("#" + name + "_button_create").button('enable');
 				$("#" + name + "_button_create").prop( "disabled", false );
-				console.log("enable");
+				//console.log("enable");
 			    } else {
 				$("#" + name + "_button_create").prop( "disabled", true );
 				//$("#" + name + "_button_create").button('disable');
