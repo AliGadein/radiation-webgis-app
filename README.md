@@ -89,7 +89,7 @@ The turf.js team is planning to change the way of how turf calculates in a major
 Once they will release this we will update our project with the necessary changes.
 </ul>
 
-<h1>Known bugs:</h1>
+<h1>Known limitations:</h1>
 <ul>
 Loading of big layers from a folder may take long time, depending on your internet connection. It happens because that way the page must download the layers from the webserver every time when you load the page. Please use smaller .geojson files in order to avoid the slow pageloads. It is possible to fix this effect by implementing a layer loading strategy for the given map extent. You can do this with for example with WMS services using GeoServer / MapServer or with dirext ajax get requests using GEOPHP + PGSQL. Using them, you have the ability to create a layer request strategy for the current extent.
 </ul>
