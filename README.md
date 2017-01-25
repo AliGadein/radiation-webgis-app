@@ -61,7 +61,7 @@ In case of: www.yourdomain.xyz/
       <li>Help box</li>
     </ul>
 </ul>
-<h1>Libaries used:</h1>
+<h1>Libraries used:</h1>
 <ul>
   <li><a target="_blank" href="https://angularjs.org/">Angular.js</a> for: routing, template management (directives)</li>
   <li><a target="_blank" href="https://jquery.com/">JQuery</a> for: template management</li>
