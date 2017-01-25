@@ -14,7 +14,7 @@ define(["openLayersWrapper", "openlayers"], function(openLayersWrapper, ol){
 	style: olWrapper.stylist.styleFunction
     });
  
-    olWrapper.addFeaturesFromGeoJson("path", "Data/json/poly.shp.geojson", administrative_layer);
+    olWrapper.addFeaturesFromGeoJson("path", "Data/json/badenw.geojson", administrative_layer);
 
     // Layer2
 

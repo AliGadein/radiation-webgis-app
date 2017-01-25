@@ -78,6 +78,7 @@ define(["jqueryui", "bootstrap"], function(ui, bs){
 		selected = ow.selectedFeaturesCollection;
 		
 		if(selected.getLength() < geom_settings.min || (selected.getLength() > geom_settings.max && geom_settings.max !== null)){
+		    
 		    element.find(".tool").prop('disabled', true);
 		} else {
 		
@@ -85,9 +86,13 @@ define(["jqueryui", "bootstrap"], function(ui, bs){
 			selected.forEach(function(feature, index, array) {
 			    type = feature.getGeometry().getType();
 			    if($.inArray(type, geom_settings.accept_only) === -1){
+				//$("#" + name + "_button_create").button('disable');
 				element.find(".tool").prop('disabled', true);
+				 
 			    } else {
+				//$("#" + name + "_button_create").button('enable');
 				element.find(".tool").prop('disabled', false);
+				
 			    }
 			});
 		    }
@@ -132,16 +137,33 @@ define(["jqueryui", "bootstrap"], function(ui, bs){
 		    });
 
 		},
+		
+		open: function() {
+		    
+		   	setInterval(function(){
+			    console.log(self.validateForm(self.tools[name]));
+			    if(self.validateForm(self.tools[name])){
+				//$("#" + name + "_button_create").button('enable');
+				$("#" + name + "_button_create").prop( "disabled", false );
+				console.log("enable");
+			    } else {
+				$("#" + name + "_button_create").prop( "disabled", true );
+				//$("#" + name + "_button_create").button('disable');
+			    };
+			}, 3000);
+		},
 		buttons: [{
 		    text: "Create",
 		    id: name + "_button_create",
-		    disabled: true,
+		    //disabled: true,
 		    create: function(event, ui){
 			setInterval(function(){
 			    if(self.validateForm(self.tools[name])){
-				$("#" + name + "_button_create").button('enable');
+				//$("#" + name + "_button_create").button('enable');
+				$("#" + name + "_button_create").prop( "disabled", false );
 			    } else {
-				$("#" + name + "_button_create").button('disable');
+				//$("#" + name + "_button_create").button('disable');
+				$("#" + name + "_button_create").prop( "disabled", true );
 			    };
 			}, 3000);
 		    },
