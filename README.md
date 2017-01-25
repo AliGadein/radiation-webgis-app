@@ -1,4 +1,4 @@
-# radiation-webgis-app
+# Client-side spatial analyser
 
 <h1>About us:</h1>
 <ul>
@@ -61,7 +61,7 @@ In case of: www.yourdomain.xyz/
       <li>Help box</li>
     </ul>
 </ul>
-<h1>Libaries used:</h1>
+<h1>Libraries used:</h1>
 <ul>
   <li><a target="_blank" href="https://angularjs.org/">Angular.js</a> for: routing, template management (directives)</li>
   <li><a target="_blank" href="https://jquery.com/">JQuery</a> for: template management</li>
@@ -87,6 +87,11 @@ The turf.js team is planning to change the way of how turf calculates in a major
 <i><b>Turf.js:</b> <q><a target="_blank" href="https://github.com/Turfjs/turf/issues/387">This is because buffer operations are non-geodesic.</a> The current implementation is only capable of flat-plane buffers. It is a <a target="_blank" href="https://github.com/Turfjs/turf-buffer/issues/7">known limitation</a> I would love to fix when I have the time, but it is a significant algorithmic lift.</q></i>
 
 Once they will release this we will update our project with the necessary changes.
+</ul>
+
+<h1>Known limitations:</h1>
+<ul>
+Loading of big layers from a folder may take long time, depending on your internet connection. It happens because that way the page must download the layers from the webserver every time when you load the page. Please use smaller .geojson files in order to avoid the slow pageloads. It is possible to fix this effect by implementing a layer loading strategy for the given map extent. You can do this with for example with WMS services using GeoServer / MapServer or with direct ajax get requests using GEOPHP + PGSQL. Using them, you have the ability to create a layer request strategy for the current extent.
 </ul>
 
 <h1>License information:</h1>
