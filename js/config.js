@@ -1,7 +1,7 @@
 requirejs.config({
     
     baseUrl: "js",
-    
+    waitSeconds: 200,
     paths: {
 	
 	// Core libs

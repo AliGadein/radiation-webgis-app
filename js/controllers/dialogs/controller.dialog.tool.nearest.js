@@ -65,16 +65,23 @@ define(["jqueryui", "turf", "openlayers"], function(jqueryui, turf, ol){
 		    if(sv_geojson.geometry.coordinates[0] === point_geojson.geometry.coordinates[0] && sv_geojson.geometry.coordinates[1] === point_geojson.geometry.coordinates[1]){
 			
 			console.log("point exists in dataset");
-			
+			try {
 			layer_surveyed.getSource().removeFeature(point_fc);
 			remember = true;
+			} catch (e) {
+			    
+			}
 		    }
  
 		});
 		
 		var nearest = turf.nearest(point_geojson, ow.FormatGeoJson.writeFeaturesObject(layer_surveyed.getSource().getFeatures(),ow.defaultFeatureReadOptions));
 		if(remember === true){
+		    try {
 		    layer_surveyed.getSource().addFeature(point_fc);
+		    } catch(e){
+			
+		    }
 		}
 
 		ow.addGeoJsonToSource(nearest , nearest_layer);

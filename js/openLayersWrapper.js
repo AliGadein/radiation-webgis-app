@@ -65,6 +65,18 @@ define(["openlayers", "olstyles", "jquery"], function(ol, styles, jquery){
 	     self.selectedFeaturesCollection.changed();
 	});
 
+	self.selectedFeaturesCollection.on("add", function(){
+	    self.selectedFeaturesCollection.forEach(function(feature, index, array) {
+		
+	    });
+	});
+
+	self.selectedFeaturesCollection.on("remove", function(){
+	    self.selectedFeaturesCollection.forEach(function(feature, index, array) {
+		
+	    });
+	});
+
 	self.interactions.push(self.interactionSelect);
 
 	self.dragpan = new ol.interaction.DragPan();
